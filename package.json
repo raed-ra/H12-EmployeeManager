@@ -1,0 +1,22 @@
+{
+  "name": "employeemanager",
+  "version": "1.0.0",
+  "description": "MYSQL Employee Manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "JEST"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raed-ra/H12-EmployeeManager.git"
+  },
+  "keywords": [
+    "H12"
+  ],
+  "author": "Raed R",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raed-ra/H12-EmployeeManager/issues"
+  },
+  "homepage": "https://github.com/raed-ra/H12-EmployeeManager#readme"
+}
