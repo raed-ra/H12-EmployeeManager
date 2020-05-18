@@ -1,3 +1,11 @@
+Video: https://drive.google.com/open?id=1GC-KEL9viV76F-0nkwWItgvmUXmrCu2M
+
+Note: Focus of this code is to structure the program well and have things in their own folder.
+you can use the ./db/see1(use)/made db....sql   to build the database
+Also you can import CSV files which are saved in the same folder
+
+
+
 # Unit 12 MySQL Homework: Employee Tracker
 
 Developers are often tasked with creating interfaces that make it easy for non-developers to view and interact with information stored in databases. Often these interfaces are known as **C**ontent **M**anagement **S**ystems. In this homework assignment, your challenge is to architect and build a solution for managing a company's employees using node, inquirer, and MySQL.
