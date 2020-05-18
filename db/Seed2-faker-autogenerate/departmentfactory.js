@@ -11,7 +11,7 @@ class DepartmentFactory {
     make() {
         let results = []
         // will just return the departments
-        for (let index = 0; index < this.number; index++) {
+        for (let index = 1; index <= this.number; index++) {
             results.push({
                 name: faker.commerce.department()
             })
@@ -40,7 +40,6 @@ class DepartmentFactory {
             let created =  this.query("INSERT INTO department SET ?",department).catch(function(err){console.log(err)})
             results.push(created)
         })
-        con.end()
         return results;
     }
 }

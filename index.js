@@ -48,6 +48,7 @@ async function start() {
             break;
         case "7":
             let depid = actionoption.depbudget
+            console.log({depid})
             let budgetreport = await orm.budgetquery(depid)
             console.table(budgetreport)
             start()
@@ -156,18 +157,25 @@ async function viewtable(table) {
             break;
         case "Employees":
             employeeviewlist = []
+            //console.log("inside employees case")
             let employees = await pulldbtables.employeelist();
+            //console.table(employees)
             let managers = await pulldbtables.employeelist();
+            //console.table(employees)
             let employeeroles = await pulldbtables.rolelist();
-            console.table(employeeroles);
+            //console.table(employeeroles);
             employees.forEach((employee) => {
                 if (employee.role_id !== null) {
                     employee.role_id = (employeeroles.find(data => data.id === employee.role_id)).title;
+                    //console.table(employee.role_id)
                 }
                 if (employee.manager_id !== null) {
-                    employee.manager_id = (managers.find(data => data.id === employee.manager_id)).first_name;
+                    employee.manager_id = (managers.find(data => data.id === employee.manager_id)).first_name + " " + (managers.find(data => data.id === employee.manager_id)).second_name;
+                    //.first_name;
+                    console.table(employee.manager_id)
                 }
             })
+
             console.table(employees)
             break;
         case "Roles":

@@ -9,10 +9,9 @@ class RoleFactory {
 
     make() {
         return this.query('SELECT `id` FROM `department`').then((ids) => {
-            console.log(ids.department_id)
             let results = []
             // will just return the roles
-            for (let index = 0; index < this.number; index++) {
+            for (let index = 1; index <= this.number; index++) {
                 results.push({
                     title: faker.name.jobTitle(),
                     salary: faker.random.number(),
@@ -20,7 +19,8 @@ class RoleFactory {
                 })
             }
             return results
-        })
+        }).catch(function (err) { 
+            console.log(err) })
     }
 
     query(statement,value) {
@@ -46,19 +46,14 @@ class RoleFactory {
         })
     }
 
-
-
     async create() {
         // insert roles generated into db
-        const toCreate = await this.make()
-        console.log(toCreate)
+        const toCreate = await this.make().catch(function (err) { console.log(err) })
         let results = []
-        toCreate.forEach((role) => {
-            console.log(role)
-            let created = this.query("INSERT INTO " + this.table + " SET ?", role).catch(function (err) { console.log(err) })
+        toCreate.forEach(async (role) => {
+            let created = await this.query("INSERT INTO " + this.table + " SET ?", role).catch(function (err) { console.log(err) })
             results.push(created)
         })
-        con.end()
         return results;
     }
 }
